@@ -11,6 +11,8 @@ add_cmocka_test(torture_misc torture_misc.c ${TORTURE_LIBRARY})
 add_cmocka_test(torture_config torture_config.c ${TORTURE_LIBRARY})
 add_cmocka_test(torture_options torture_options.c ${TORTURE_LIBRARY})
 add_cmocka_test(torture_isipaddr torture_isipaddr.c ${TORTURE_LIBRARY})
+add_cmocka_test(torture_packet torture_packet.c ${TORTURE_LIBRARY})
+add_cmocka_test(torture_pki_ed25519 torture_pki_ed25519.c ${TORTURE_LIBRARY})
 if (UNIX AND NOT WIN32)
     # requires ssh-keygen
     add_cmocka_test(torture_keyfiles torture_keyfiles.c ${TORTURE_LIBRARY})
