@@ -104,8 +104,8 @@
 static const char *default_methods[] = {
   KEY_EXCHANGE,
   HOSTKEYS,
-  AES BLOWFISH DES,
-  AES BLOWFISH DES,
+  CHACHA20 AES BLOWFISH DES,
+  CHACHA20 AES BLOWFISH DES,
   "hmac-sha2-256,hmac-sha2-512,hmac-sha1",
   "hmac-sha2-256,hmac-sha2-512,hmac-sha1",
   "none",
