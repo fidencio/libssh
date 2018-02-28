@@ -103,7 +103,7 @@ static void torture_packet(const char *cipher,
     assert_int_equal(rc, encrypted_packet_len);
 
     ssh_packet_set_callbacks(session, &cb);
-    BURN_BUFFER(response, sizeof(response));
+    explicit_bzero(response, sizeof(response));
     rc = ssh_packet_socket_callback(buffer, encrypted_packet_len, session);
     assert_int_not_equal(rc, SSH_ERROR);
     if(payload_len > 0){
