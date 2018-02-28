@@ -35,10 +35,12 @@ struct chacha20_poly1305_keysched {
     struct chacha_ctx k2;
 };
 
+#pragma pack(push, 1)
 struct ssh_packet_header {
     uint32_t length;
     uint8_t payload[];
-} __attribute__((packed));
+};
+#pragma pack(pop)
 
 const uint8_t zero_block_counter[8] = {0, 0, 0, 0, 0, 0, 0, 0};
 const uint8_t payload_block_counter[8] = {1, 0, 0, 0, 0, 0, 0, 0};
