@@ -13,7 +13,7 @@ Public domain.
 #include <sys/types.h>
 
 struct chacha_ctx {
-    u_int input[16];
+    unsigned int input[16];
 };
 
 #define CHACHA_MINKEYLEN  16
@@ -22,19 +22,19 @@ struct chacha_ctx {
 #define CHACHA_STATELEN   (CHACHA_NONCELEN+CHACHA_CTRLEN)
 #define CHACHA_BLOCKLEN   64
 
-void chacha_keysetup(struct chacha_ctx *x, const u_char *k, u_int kbits)
+void chacha_keysetup(struct chacha_ctx *x, const unsigned char *k, unsigned int kbits)
 #ifdef HAVE_GCC_BOUNDED_ATTRIBUTE
     __attribute__((__bounded__(__minbytes__, 2, CHACHA_MINKEYLEN)))
 #endif
     ;
-void chacha_ivsetup(struct chacha_ctx *x, const u_char *iv, const u_char *ctr)
+void chacha_ivsetup(struct chacha_ctx *x, const unsigned char *iv, const unsigned char *ctr)
 #ifdef HAVE_GCC_BOUNDED_ATTRIBUTE
     __attribute__((__bounded__(__minbytes__, 2, CHACHA_NONCELEN)))
     __attribute__((__bounded__(__minbytes__, 3, CHACHA_CTRLEN)))
 #endif
     ;
-void chacha_encrypt_bytes(struct chacha_ctx *x, const u_char *m,
-    u_char *c, u_int bytes)
+void chacha_encrypt_bytes(struct chacha_ctx *x, const unsigned char *m,
+    unsigned char *c, unsigned int bytes)
 #ifdef HAVE_GCC_BOUNDED_ATTRIBUTE
     __attribute__((__bounded__(__buffer__, 2, 4)))
     __attribute__((__bounded__(__buffer__, 3, 4)))
